@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Fraunces, Geist, Geist_Mono } from "next/font/google";
 
 import "../index.css";
 import Header from "@/components/header";
@@ -15,9 +15,16 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const fraunces = Fraunces({
+  variable: "--font-fraunces",
+  subsets: ["latin"],
+  axes: ["opsz"],
+});
+
 export const metadata: Metadata = {
-  title: "renovatio",
-  description: "renovatio",
+  title: "Renovatio",
+  description:
+    "Renovatio — an architecture studio crafting minimal, enduring spaces.",
 };
 
 export default function RootLayout({
@@ -27,7 +34,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} ${fraunces.variable} antialiased`}>
         <Providers>
           <div className="grid grid-rows-[auto_1fr] h-svh">
             <Header />
