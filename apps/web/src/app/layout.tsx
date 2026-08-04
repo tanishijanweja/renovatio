@@ -1,19 +1,30 @@
 import type { Metadata } from "next";
-import { Manrope } from "next/font/google";
+import { Fraunces, Geist, Geist_Mono } from "next/font/google";
 
 import "../index.css";
 import Header from "@/components/header";
 import Providers from "@/components/providers";
 
-const manrope = Manrope({
-  variable: "--font-manrope",
+const geistSans = Geist({
+  variable: "--font-geist-sans",
   subsets: ["latin"],
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
+const fraunces = Fraunces({
+  variable: "--font-fraunces",
+  subsets: ["latin"],
+  axes: ["opsz"],
 });
 
 export const metadata: Metadata = {
   title: "Renovatio",
   description:
-    "Renovatio Architects by Naresh Vijh — Architect, Interior Designer & 3D Visualizer. Our website is coming soon.",
+    "Renovatio — an architecture studio crafting minimal, enduring spaces.",
 };
 
 export default function RootLayout({
@@ -23,9 +34,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${manrope.variable} antialiased`}>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} ${fraunces.variable} antialiased`}
+      >
         <Providers>
-          <div className="grid h-svh grid-rows-[auto_1fr]">
+          <div className="grid grid-rows-[auto_1fr] h-svh">
             <Header />
             {children}
           </div>
