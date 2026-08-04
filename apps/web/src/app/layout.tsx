@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Fraunces, Geist, Geist_Mono } from "next/font/google";
 
 import "../index.css";
-import { Navbar } from "@/components/navbar";
 import Providers from "@/components/providers";
 
 const geistSans = Geist({
@@ -34,13 +33,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <Providers>
-          <div className="flex min-h-svh flex-col">
-            <Navbar />
-            <main className="flex-1">{children}</main>
-          </div>
-        </Providers>
+      <body className={`${geistSans.variable} ${geistMono.variable} ${fraunces.variable} antialiased`}>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
